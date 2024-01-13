@@ -11,6 +11,13 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v1
 
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - run: npm install
+      - run: npm run build
+
       - name: Deploy to my EC2 instance
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
@@ -18,4 +25,5 @@ jobs:
           SOURCE: "./"
           REMOTE_HOST: "ec2-3-89-204-19.compute-1.amazonaws.com"
           REMOTE_USER: "ubuntu"
-          TARGET: "/home/ubuntu/"
+          TARGET: "/var/www/html/"
+          script: sudo service nginx restart

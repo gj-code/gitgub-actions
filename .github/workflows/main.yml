@@ -23,7 +23,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ec2key }}
           SOURCE: "./"
-          REMOTE_HOST: "ec2-3-89-204-19.compute-1.amazonaws.com"
+          REMOTE_HOST: "54.234.54.164"
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html/"
           script: sudo service nginx restart

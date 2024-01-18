@@ -17,7 +17,6 @@ app.use(express.static(
 app.get('/*', (req, res, next) => {
     fs.readFile(indexPath, 'utf8', (err, htmlData) => {
         if (err) {
-            console.log("20")
             console.error('Error during file reading', err);
             return res.status(404).end()
         }
